@@ -7,7 +7,7 @@ function UserInfo( props ) {
                 <button>Profile</button>
                 <ul>
                     <li>
-                        { props.userName }
+                        <a href="/profile">{ props.userName }</a>
                     </li>
                     <li>
                         <a href="/orders">Orders</a>
@@ -19,12 +19,11 @@ function UserInfo( props ) {
             </div>
         )
     }
-    return null;
+    return <a href="/register">Register</a>;
 }
 
 function mapStateToProps( state ) {
-    const { userName } = state;
-    return { userName };
+    return { userName: state.userName };
 }
 
 export default connect( mapStateToProps, null )( UserInfo );
