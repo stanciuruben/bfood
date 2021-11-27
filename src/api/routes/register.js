@@ -17,7 +17,7 @@ router.get('/', async ( req, res ) => {
 // @desc    register user
 // @access  Public
 router.post('/', async ( req, res ) => {
-    const { name, email, repeatedEmail, password, repeatedPassword } = req.body;
+    const { name, email, repeatedEmail, password, repeatedPassword, address1, address2 } = req.body;
     
     // Form validation
     const errors = [];
@@ -49,7 +49,9 @@ router.post('/', async ( req, res ) => {
         const user = new User({
             name,
             email,
-            password
+            password,
+            address1,
+            address2
         });
     
         const salt = await bcrypt.genSalt( 10 ) ;

@@ -14,6 +14,14 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    address1: {
+        type: String,
+        required: true
+    },
+    address2: {
+        type: String,
+        required: true
+    },
     orders: {
         type: Array
     }

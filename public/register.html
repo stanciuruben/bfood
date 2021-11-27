@@ -30,6 +30,14 @@
                 <label for="password">Repeat Password</label>
                 <input type="password" name="password" id="repeat-password">
             </div>
+            <div>
+                <label for="address1">Address Line 1</label>
+                <input type="text" name="address1" id="address1">
+            </div>
+            <div>
+                <label for="address2">Address Line 2</label>
+                <input type="text" name="address2" id="address2">
+            </div>
             <button id="submit">Register</button>
         </form>
     </div>
@@ -40,7 +48,9 @@
             email = document.getElementById("email"),
             repeatedEmail = document.getElementById("repeat-email"),
             password = document.getElementById("password"),
-            repeatedPassword = document.getElementById("repeat-password");
+            repeatedPassword = document.getElementById("repeat-password"),
+            address1 = document.getElementById("address1"),
+            address2 = document.getElementById("address2");
 
         function addEvent( event, domElement, cb ) {
             if ( domElement.addEventListener )  // W3C DOM
@@ -107,6 +117,8 @@
                 repeatedEmail: repeatedEmail.value,
                 password: password.value,
                 repeatedPassword: repeatedPassword.value,
+                address1: address1.value,
+                address2: address2.value
             }
             customHttpRequest( 
                 "POST", 
