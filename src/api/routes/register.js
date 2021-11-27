@@ -29,7 +29,7 @@ router.post('/', async ( req, res ) => {
         errors.push( "Email already exists!" );
     }
     if ( !email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-        errors.push("Invalid Email!");
+        errors.push( "Invalid Email!" );
     }
     if ( email !== repeatedEmail ) {
         errors.push( "Emails do not match!" );
@@ -41,7 +41,7 @@ router.post('/', async ( req, res ) => {
         errors.push( "Passwords do not match!" );
     }
     if(errors.length > 0) {
-        return res.status(400).json({ errors });
+        return res.status( 400 ).json({ errors });
     }
 
     try {
@@ -52,7 +52,7 @@ router.post('/', async ( req, res ) => {
             password
         });
     
-        const salt = await bcrypt.genSalt( 10) ;
+        const salt = await bcrypt.genSalt( 10 ) ;
         user.password = await bcrypt.hash( password, salt );
     
         await user.save();

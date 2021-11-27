@@ -7,13 +7,13 @@ module.exports = ( req, res, next ) => {
 
     // Check if no token
     if( !token ) {
-        return res.status(401).redirect('/bfood/login');
+        return res.status( 401 ).redirect( '/bfood/login' );
     }
 
     // Verify token
     try {
         const decoded = jwt.verify( token, config.get( 'jwtSecret' ) );
-        if (decoded) {
+        if ( decoded ) {
             next();
         }
     } catch ( err ) {

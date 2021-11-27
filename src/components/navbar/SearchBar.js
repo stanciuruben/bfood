@@ -9,7 +9,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <label htmlFor="searchbar">Search Recipes</label>
+            <label htmlFor="searchbar">Search meal</label>
             <input type="text" name="searchbar" value={ input } onChange={ changeInput } />
             <button>Search</button>
         </div>
