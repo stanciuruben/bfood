@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
-function UserInfo( props ) {
-    if ( props.userName !== null ) {
+const UserInfo =  ({ userName }) => {
+    if ( userName !== null ) {
         return (
             <div>
                 <button>Profile</button>
                 <ul>
                     <li>
-                        <a href="/profile">{ props.userName }</a>
+                        <a href="/profile">{ userName }</a>
                     </li>
                     <li>
                         <a href="/orders">Orders</a>
@@ -19,11 +19,16 @@ function UserInfo( props ) {
             </div>
         )
     }
-    return <a href="/register">Register</a>;
+    return (
+        <div>
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+
+    );
+        
 }
 
-function mapStateToProps( state ) {
-    return { userName: state.userName };
-}
+const mapStateToProps = state => ({ userName: state.userName });
 
 export default connect( mapStateToProps, null )( UserInfo );

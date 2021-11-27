@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SearchBar() {
+const SearchBar = () => {
     const [ input, setInput ] = useState("");
 
     const changeInput = ( evnt ) => {
