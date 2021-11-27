@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "concurrently \"npm start\" \"npm run scss\"",
-    "scss": "node-sass -w /src/scss -o /src/css --recursive",
+    "scss": "sass --watch src/scss:public",
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.43.5"
   }
 }
