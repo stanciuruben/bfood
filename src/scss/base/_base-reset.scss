@@ -1,9 +1,20 @@
+@font-face {
+    font-family: 'k2d';
+    src: url('fonts/K2DRegular.ttf') format('ttf'),
+         url('fonts/K2DRegular.woff') format('woff'),
+         url('fonts/K2DRegular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: normal;
+}
+
 html {
     font-size: 62.5%;
 }
 
 body {
     box-sizing: border-box;
+    font-family: 'k2d';
+    background-color: $color-grey-light;
 }
 
 *,
@@ -12,4 +23,18 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }

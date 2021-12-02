@@ -1,0 +1,120 @@
+#main-nav {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+
+    .main-nav-logo {
+        display: inline-block;
+        font-size: 2rem;
+        color: $color-primary;
+        margin: 2rem 3rem;
+    }
+
+    .container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2.6rem;
+        margin-top: 2rem;
+
+        & > * {
+            margin: 0 2rem;
+        }
+
+        .main-nav-searchbar {
+            display: inline-block;
+            position: relative;
+            height: 2.6rem;
+            width: 25rem;
+
+            label {
+                display: none;
+            }
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 80%;
+                height: 100%;
+                padding-left: 1rem;
+                font-size: 2rem;
+                background-color: $color-grey-light;
+                color: $color-grey-dark;
+                border: none;
+                border-radius: 1rem;
+                z-index: 1;
+
+                &:focus-visible {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $color-grey;
+                    opacity: 1;
+                }
+            }
+
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                border: none;
+                border-radius: none;
+                border-top-right-radius: 1rem;
+                border-bottom-right-radius: 1rem;
+                padding: 0 3rem;
+                background-color: $color-primary;
+                color: $color-grey-light;
+                z-index: 0;
+                transition: background-color .3s ease;
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    height: 2rem;
+                }
+
+                &:hover {
+                    background-color: $color-secondary;
+                }
+
+                &:active {
+                    background-color: $color-tertiary;
+                }
+            }
+        }
+
+        .main-nav-button {
+            display: inline-block;
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 2.6rem;
+            width: 5rem;
+            border-radius: 1rem;
+            background-color: $color-primary;
+            transition: background-color .3s ease;
+            vertical-align: top;
+
+            &:hover {
+                background-color: $color-secondary;
+            }
+
+            &:active {
+                background-color: $color-tertiary;
+            }
+
+            svg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 2rem;
+            }
+        }
+    }
+}

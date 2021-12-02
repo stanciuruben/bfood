@@ -1,0 +1,2 @@
+export const TOGGLE_CART = "TOGGLE_CART";
+export const TOGGLE_USER_INFO = "TOGGLE_USER_INFO";

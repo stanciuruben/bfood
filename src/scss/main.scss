@@ -1,2 +1,7 @@
-@import "./containers/navbar";
+@import "./base/variables";
 @import "./base/base-reset";
+@import "./base/typography";
+
+@import "./utils/util-classes";
+
+@import "./containers/navbar";

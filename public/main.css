@@ -1,9 +1,17 @@
+@font-face {
+  font-family: "k2d";
+  src: url("fonts/K2DRegular.ttf") format("ttf"), url("fonts/K2DRegular.woff") format("woff"), url("fonts/K2DRegular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
 html {
   font-size: 62.5%;
 }
 
 body {
   box-sizing: border-box;
+  font-family: "k2d";
+  background-color: #D2E0DD;
 }
 
 *,
@@ -12,6 +20,129 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:link,
+a:active {
+  text-decoration: none;
+  color: #000000;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.text-light {
+  color: #D2E0DD;
+}
+
+#main-nav {
+  display: block;
+  width: 100%;
+  background-color: transparent;
+}
+#main-nav .main-nav-logo {
+  display: inline-block;
+  font-size: 2rem;
+  color: #57A5B8;
+  margin: 2rem 3rem;
+}
+#main-nav .container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2.6rem;
+  margin-top: 2rem;
+}
+#main-nav .container > * {
+  margin: 0 2rem;
+}
+#main-nav .container .main-nav-searchbar {
+  display: inline-block;
+  position: relative;
+  height: 2.6rem;
+  width: 25rem;
+}
+#main-nav .container .main-nav-searchbar label {
+  display: none;
+}
+#main-nav .container .main-nav-searchbar input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80%;
+  height: 100%;
+  padding-left: 1rem;
+  font-size: 2rem;
+  background-color: #D2E0DD;
+  color: #333333;
+  border: none;
+  border-radius: 1rem;
+  z-index: 1;
+}
+#main-nav .container .main-nav-searchbar input:focus-visible {
+  outline: none;
+}
+#main-nav .container .main-nav-searchbar input::placeholder {
+  color: #8a9e99;
+  opacity: 1;
+}
+#main-nav .container .main-nav-searchbar button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border: none;
+  border-radius: none;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0 3rem;
+  background-color: #57A5B8;
+  color: #D2E0DD;
+  z-index: 0;
+  transition: background-color 0.3s ease;
+}
+#main-nav .container .main-nav-searchbar button svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
+}
+#main-nav .container .main-nav-searchbar button:hover {
+  background-color: #FDB560;
+}
+#main-nav .container .main-nav-searchbar button:active {
+  background-color: #631104;
+}
+#main-nav .container .main-nav-button {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 2.6rem;
+  width: 5rem;
+  border-radius: 1rem;
+  background-color: #57A5B8;
+  transition: background-color 0.3s ease;
+  vertical-align: top;
+}
+#main-nav .container .main-nav-button:hover {
+  background-color: #FDB560;
+}
+#main-nav .container .main-nav-button:active {
+  background-color: #631104;
+}
+#main-nav .container .main-nav-button svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
