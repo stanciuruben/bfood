@@ -1,0 +1,92 @@
+.cart {
+    &__item {
+        color: $color-grey-dark;
+        font-size: 2rem;
+
+        & > * {
+            margin: 0 1rem;
+        }
+
+        &__title {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+
+        &__ammount {
+            display: inline-block;
+        }
+
+        &__button {
+            position: relative;
+            vertical-align: top;
+            width: 4rem;
+            height: 2.6rem;
+            font-size: 1.5rem;
+            border-radius: 1rem;
+            background-color: $color-secondary;
+            color: $color-grey-light;
+            transition: background-color .3s ease;
+
+            &--delete {
+                position: relative;
+                vertical-align: top;
+                width: 3rem;
+                height: 2.6rem;
+    
+                svg{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate( -50%, -50% );
+                    height: 2rem;
+                    width: auto;
+                    fill: $color-grey-dark;
+    
+                    &:hover {
+                        fill: $color-danger;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: $color-grey-dark;
+            }
+        }
+
+        &__extras__title {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        &__extra {
+            font-size: 1.5rem;
+            margin-left: 2rem;
+
+            & > * {
+                display: inline-block;
+                margin: 0 .5rem;
+            }
+
+            &__button--delete {
+                position: relative;
+                vertical-align: top;
+                width: 3rem;
+                height: 2rem;
+    
+                svg{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate( -50%, -50% );
+                    height: 1.5rem;
+                    width: auto;
+                    fill: $color-grey-dark;
+    
+                    &:hover {
+                        fill: $color-danger;
+                    }
+                }
+            }
+        }
+    }
+}

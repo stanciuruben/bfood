@@ -40,6 +40,83 @@ button {
   color: #D2E0DD;
 }
 
+.cart__item {
+  color: #333333;
+  font-size: 2rem;
+}
+.cart__item > * {
+  margin: 0 1rem;
+}
+.cart__item__title {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.cart__item__ammount {
+  display: inline-block;
+}
+.cart__item__button {
+  position: relative;
+  vertical-align: top;
+  width: 4rem;
+  height: 2.6rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  background-color: #FDB560;
+  color: #D2E0DD;
+  transition: background-color 0.3s ease;
+}
+.cart__item__button--delete {
+  position: relative;
+  vertical-align: top;
+  width: 3rem;
+  height: 2.6rem;
+}
+.cart__item__button--delete svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2rem;
+  width: auto;
+  fill: #333333;
+}
+.cart__item__button--delete svg:hover {
+  fill: #a50f0f;
+}
+.cart__item__button:hover {
+  background-color: #333333;
+}
+.cart__item__extras__title {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+.cart__item__extra {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+}
+.cart__item__extra > * {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+.cart__item__extra__button--delete {
+  position: relative;
+  vertical-align: top;
+  width: 3rem;
+  height: 2rem;
+}
+.cart__item__extra__button--delete svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1.5rem;
+  width: auto;
+  fill: #333333;
+}
+.cart__item__extra__button--delete svg:hover {
+  fill: #a50f0f;
+}
+
 #main-nav {
   display: block;
   width: 100%;
