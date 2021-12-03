@@ -1,0 +1,7 @@
+.collapse-cart {
+    transform: translateY( calc( 100% - 8rem ) );
+
+    .cart__headline svg {
+        transform: translateY( -50% ) rotate( 180deg );
+    }
+}

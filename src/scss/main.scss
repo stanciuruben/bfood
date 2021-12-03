@@ -1,5 +1,6 @@
 @import "./base/variables";
 @import "./base/base-reset";
+@import "./base/mixins";
 @import "./base/typography";
 
 @import "./utils/util-classes";
@@ -7,3 +8,5 @@
 @import "./components/cart";
 
 @import "./containers/navbar";
+@import "./containers/sidemenu";
+@import "./containers/app";

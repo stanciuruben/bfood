@@ -1,12 +1,12 @@
 import Navbar from './Navbar';
-import Cart from '../components/Cart';
+import Sidemenu from './Sidemenu';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
+      <Sidemenu />
       <Navbar />
-      <Cart />
-    </div>
+    </main>
   );
 }
 

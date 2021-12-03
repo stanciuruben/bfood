@@ -1,20 +1,8 @@
 import { 
-    TOGGLE_CART,
-    TOGGLE_USER_INFO,
-    UPDATE_CART_ITEM_AMMOUNT,
-    UPDATE_CART_EXTRA_AMMOUNT
+    SET_CART_VISIBILITY,
+    UPDATE_CART,
  } from './types';
 
-export const toggleCart = () => ({ type: TOGGLE_CART });
+export const setCartVisibility = isVisble => ({ type: SET_CART_VISIBILITY, payload: isVisble });
 
-export const toggleUserInfo = () => ({ type: TOGGLE_USER_INFO });
-
-export const updateCartItemAmmount = ( method, id ) => ({ 
-    type: UPDATE_CART_ITEM_AMMOUNT, 
-    payload: { method, id }
-});
-
-export const updateCartExtraAmmount = ( method, id, extraName ) => ({ 
-    type: UPDATE_CART_EXTRA_AMMOUNT, 
-    payload: { method, id, extraName }
-});
+export const updateCart = ( newCart ) => ({ type: UPDATE_CART, payload: newCart });

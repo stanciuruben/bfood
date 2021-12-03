@@ -1,24 +1,130 @@
 import { 
-    TOGGLE_CART, 
-    TOGGLE_USER_INFO,
-    UPDATE_CART_ITEM_AMMOUNT,
-    UPDATE_CART_EXTRA_AMMOUNT
+    SET_CART_VISIBILITY,
+    UPDATE_CART
 } from "./types";
 
 const initialState = {
-    isCartVisible: false,
-    isUserInfoVisible: false,
+    isCartVisible: true,
     userName: null,
     cart: [
         {
-            name: "Pizza",
+            name: "Pizza carbonara napoletana di milano",
             ammount: 1,
+            price: 7.99,
+            totalPrice: 7.99,
             extras: [
                 {
-                    name: 'wihtout ananas'
+                    name: 'wihtout ananas',
+                    id: 0
+                },
+                {
+                    name: 'with cheese',
+                    id: 1
+                },
+                {
+                    name: 'with tuna',
+                    id: 2
                 }
             ],
             id: 0,
+        },
+        {
+            name: "Pizza milano",
+            ammount: 1,
+            price: 5.69,
+            totalPrice: 5.69,
+            extras: [
+                {
+                    name: 'with ananas',
+                    id: 0,
+                    price: 1.99
+                }
+            ],
+            id: 1,
+        },
+        {
+            name: "Pizza carbonara napoletana di milano",
+            ammount: 1,
+            price: 7.99,
+            totalPrice: 7.99,
+            extras: [
+                {
+                    name: 'wihtout ananas',
+                    id: 0
+                },
+                {
+                    name: 'with cheese',
+                    id: 1
+                },
+                {
+                    name: 'with tuna',
+                    id: 2
+                }
+            ],
+            id: 2,
+        },
+        {
+            name: "Pizza carbonara napoletana di milano",
+            ammount: 1,
+            price: 7.99,
+            totalPrice: 7.99,
+            extras: [
+                {
+                    name: 'wihtout ananas',
+                    id: 0
+                },
+                {
+                    name: 'with cheese',
+                    id: 1
+                },
+                {
+                    name: 'with tuna',
+                    id: 2
+                }
+            ],
+            id: 3,
+        },
+        {
+            name: "Pizza carbonara napoletana di milano",
+            ammount: 1,
+            price: 7.99,
+            totalPrice: 7.99,
+            extras: [
+                {
+                    name: 'wihtout ananas',
+                    id: 0
+                },
+                {
+                    name: 'with cheese',
+                    id: 1
+                },
+                {
+                    name: 'with tuna',
+                    id: 2
+                }
+            ],
+            id: 4,
+        },
+        {
+            name: "Pizza carbonara napoletana di milano",
+            ammount: 1,
+            price: 7.99,
+            totalPrice: 7.99,
+            extras: [
+                {
+                    name: 'wihtout ananas',
+                    id: 0
+                },
+                {
+                    name: 'with cheese',
+                    id: 1
+                },
+                {
+                    name: 'with tuna',
+                    id: 2
+                }
+            ],
+            id: 5,
         }
     ],
     orders: []
@@ -26,18 +132,10 @@ const initialState = {
 
 const RootReducer = ( state = initialState, action ) => {
     switch ( action.type ) {
-        case TOGGLE_CART:
-            return { ...state, isCartVisible: !state.isCartVisible };
-        case TOGGLE_USER_INFO:
-            return { ...state, isUserInfoVisible: !state.isUserInfoVisible };
-        case UPDATE_CART_ITEM_AMMOUNT:
-            const cartItem = state.cart.find( item => item.id === action.payload.id );
-            console.log( cartItem );
-            return { 
-                ...state
-            }
-        case UPDATE_CART_EXTRA_AMMOUNT:
-            return state
+        case SET_CART_VISIBILITY:
+            return { ...state, isCartVisible: action.payload };
+        case UPDATE_CART:
+            return { ...state, cart: action.payload };
         default: return state;
     }
 }
