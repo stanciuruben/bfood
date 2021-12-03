@@ -1,7 +1,11 @@
 .collapse-cart {
-    transform: translateY( calc( 100% - 8rem ) );
+    transform: translateY( calc( 100% - 6rem ) );
 
     .cart__headline svg {
         transform: translateY( -50% ) rotate( 180deg );
     }
+}
+
+.on-cart-load {
+    animation: on-cart-load 1s ease-in-out;
 }

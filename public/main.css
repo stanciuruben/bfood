@@ -52,12 +52,27 @@ button {
 }
 
 .collapse-cart {
-  transform: translateY(calc(100% - 8rem));
+  transform: translateY(calc(100% - 6rem));
 }
 .collapse-cart .cart__headline svg {
   transform: translateY(-50%) rotate(180deg);
 }
 
+.on-cart-load {
+  animation: on-cart-load 1s ease-in-out;
+}
+
+@keyframes on-cart-load {
+  0% {
+    background-color: #e9bf8f;
+  }
+  50% {
+    background-color: #FDB560;
+  }
+  100% {
+    background-color: #e9bf8f;
+  }
+}
 .cart {
   width: 46rem;
   height: calc(100% - 6.6rem);
@@ -66,8 +81,8 @@ button {
   bottom: 0;
   right: 0;
   box-shadow: 0 0 1rem #8a9e99;
-  background-color: #FDB560;
-  background-image: linear-gradient(rgba(87, 165, 184, 0.5), rgba(99, 17, 4, 0.2));
+  background-color: #e9bf8f;
+  background-image: linear-gradient(rgba(87, 165, 184, 0.2), rgba(99, 17, 4, 0.1));
   border-top-left-radius: 1rem;
   padding: 2rem;
   transition: transform 0.5s ease;
@@ -75,30 +90,49 @@ button {
 .cart > *:not(:last-child) {
   margin-bottom: 3rem;
 }
+.cart__warning {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: #D2E0DD;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(51, 51, 51, 0.2);
+}
+.cart__warning-danger {
+  background-color: rgba(165, 15, 15, 0.7);
+}
+.cart__warning-warning {
+  background-color: rgba(155, 152, 13, 0.7);
+}
+.cart__warning-success {
+  background-color: rgba(21, 175, 21, 0.7);
+}
 .cart__headline {
   display: inline-block;
   width: 100%;
   position: relative;
   text-align: center;
   vertical-align: top;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #333333;
 }
 .cart__headline__nr {
-  font-size: 2rem;
+  font-size: 1.3rem;
   vertical-align: 0.4rem;
   height: 2rem;
   background-color: #333333;
   color: #D2E0DD;
   border-radius: 50%;
-  padding: 0.5rem 1.2rem;
+  padding: 0.35rem 0.9rem;
   pointer-events: none;
 }
 .cart__headline svg {
   display: block;
   position: absolute;
   top: 50%;
-  right: 13rem;
+  right: 14.9rem;
   transform: translateY(-50%);
   height: 2.5rem;
   fill: #333333;
@@ -153,9 +187,10 @@ button {
   min-height: 10rem;
   color: #333333;
   font-size: 1.8rem;
+  background-color: rgba(233, 191, 143, 0.2);
   box-shadow: inset 0 0.2rem 0.2rem rgba(51, 51, 51, 0.2);
   padding: 1rem 2rem;
-  margin-bottom: 1rem;
+  padding-bottom: 2rem;
 }
 .cart__item__title {
   display: inline-block;
@@ -343,6 +378,7 @@ button {
 #root {
   overflow: hidden;
   width: 100%;
+  max-width: 1920px;
   min-height: 100vh;
   position: relative;
 }

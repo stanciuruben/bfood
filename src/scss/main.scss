@@ -4,8 +4,10 @@
 @import "./base/typography";
 
 @import "./utils/util-classes";
+@import "./utils/animations";
 
 @import "./components/cart";
+@import "./components/user-info";
 
 @import "./containers/navbar";
 @import "./containers/sidemenu";

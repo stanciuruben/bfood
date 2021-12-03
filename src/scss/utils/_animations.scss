@@ -1,0 +1,11 @@
+@keyframes on-cart-load {
+    0% {
+        background-color:  $color-secondary-light;
+    }
+    50% {
+        background-color: $color-secondary;
+    }
+    100% {
+        background-color:  $color-secondary-light;
+    }
+}

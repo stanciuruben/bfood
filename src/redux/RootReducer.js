@@ -1,6 +1,8 @@
 import { 
     SET_CART_VISIBILITY,
-    UPDATE_CART
+    UPDATE_CART,
+    ADD_TO_CART,
+    DISPATCH_ORDER
 } from "./types";
 
 const initialState = {
@@ -136,6 +138,14 @@ const RootReducer = ( state = initialState, action ) => {
             return { ...state, isCartVisible: action.payload };
         case UPDATE_CART:
             return { ...state, cart: action.payload };
+        case ADD_TO_CART:
+            return { ...state, cart: state.cart.concat( [ action.payload ] ) };
+        case DISPATCH_ORDER:
+            return { 
+                ...state, orders: 
+                state.orders.concat( [{ items: state.cart }] ), 
+                cart: []
+            };
         default: return state;
     }
 }

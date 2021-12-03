@@ -6,8 +6,8 @@
     bottom: 0;
     right: 0;
     box-shadow: 0 0 1rem $color-grey;
-    background-color: $color-secondary;
-    background-image: linear-gradient( rgba( $color-primary, .5 ), rgba( $color-tertiary, .2 ) );
+    background-color: $color-secondary-light;
+    background-image: linear-gradient( rgba( $color-primary, .2 ), rgba( $color-tertiary, .1 ) );
     border-top-left-radius: 1rem;
     padding: 2rem;
     transition: transform .5s ease;
@@ -16,23 +16,46 @@
         margin-bottom: 3rem;
     }
 
+    &__warning {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        padding: 1rem 0;
+        color: $color-grey-light;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem rgba( $color-grey-dark, .2 );
+
+        &-danger {
+            background-color: rgba( $color-danger, .7 );
+        }
+
+        &-warning {
+            background-color: rgba( $color-warning, .7 );
+        }
+
+        &-success {
+            background-color: rgba( $color-success, .7 );
+        }
+    }
+
     &__headline {
         display: inline-block;
         width: 100%;
         position: relative;
         text-align: center;
         vertical-align: top;
-        font-size: 3rem;
+        font-size: 2rem;
         color: $color-grey-dark;
 
         &__nr {
-            font-size: 2rem;
+            font-size: 1.3rem;
             vertical-align: .4rem;
             height: 2rem;
             background-color: $color-grey-dark;
             color: $color-grey-light;
             border-radius: 50%;
-            padding: .5rem 1.2rem;
+            padding: .35rem .9rem;
             pointer-events: none;
         }
 
@@ -40,7 +63,7 @@
             display: block;
             position: absolute;
             top: 50%;
-            right: 13rem;
+            right: 14.9rem;
             transform: translateY( -50% );
             height: 2.5rem;
             fill: $color-grey-dark;
@@ -106,9 +129,10 @@
         min-height: 10rem;
         color: $color-grey-dark;
         font-size: 1.8rem;
+        background-color: rgba( $color-secondary-light, .2);
         box-shadow: inset 0 .2rem .2rem rgba( $color-grey-dark, .2 );
         padding: 1rem 2rem;
-        margin-bottom: 1rem;
+        padding-bottom: 2rem;
 
         &__title {
             display: inline-block;

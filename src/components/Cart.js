@@ -1,7 +1,24 @@
 import { connect } from 'react-redux';
-import { updateCart, setCartVisibility } from '../redux/actions';
+import { useState } from 'react';
+import { updateCart, setCartVisibility, dispatchOrder } from '../redux/actions';
 
-const Cart = ({ cart, updateCart, isCartVisible, setCartVisibility }) => {
+const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrder } ) => {
+    const [ warning, setWarning ] = useState( null );
+
+    const displayWarning = ( message, type ) => {
+        setWarning( { message, type } );
+        setTimeout( () => setWarning( null ), 3000 );
+    }
+
+    const cartAnimation = () => {
+        document.getElementById( 'cart' ).classList.remove('on-cart-load');
+        setTimeout( () => {
+            document.getElementById( 'cart' ).classList.add('on-cart-load');
+        }, 0 );
+        setTimeout( () => {
+            document.getElementById( 'cart' ).classList.remove('on-cart-load');
+        }, 1000 );
+    }
 
     const changeAmmount = ( method, id ) => {
         const newCart = [ ...cart ];
@@ -21,16 +38,24 @@ const Cart = ({ cart, updateCart, isCartVisible, setCartVisibility }) => {
         const indexToRemove = newCart.findIndex( item => item.id === id );
         newCart.splice( indexToRemove, 1 );
         updateCart( newCart );
+        cartAnimation();
+    }
+
+    const makeOrder = () => {
+        cartAnimation();
+        dispatchOrder();
+        displayWarning( 'Order dispatched successfully', 'success' );
     }
 
     return (
-        <aside id="cart" className={'cart' + ( isCartVisible ? '' : ' collapse-cart') } >
+        <aside id="cart" className={'cart on-cart-load' + ( isCartVisible ? '' : ' collapse-cart') } >
             <button className="cart__headline" title="Close Cart" onClick={ () => setCartVisibility( !isCartVisible ) } >
                 Cart { cart.length > 0 && <span className="cart__headline__nr" >{ cart.length }</span> }
                 <svg viewBox="0 0 50 50">
                     <path d="M 25 2 C 12.316406 2 2 12.316406 2 25 C 2 37.683594 12.316406 48 25 48 C 37.683594 48 48 37.683594 48 25 C 48 12.316406 37.683594 2 25 2 Z M 35.707031 22.707031 L 25.707031 32.707031 C 25.511719 32.902344 25.257813 33 25 33 C 24.742188 33 24.488281 32.902344 24.292969 32.707031 L 14.292969 22.707031 C 13.902344 22.316406 13.902344 21.683594 14.292969 21.292969 C 14.683594 20.902344 15.316406 20.902344 15.707031 21.292969 L 25 30.585938 L 34.292969 21.292969 C 34.683594 20.902344 35.316406 20.902344 35.707031 21.292969 C 36.097656 21.683594 36.097656 22.316406 35.707031 22.707031 Z"></path>
                 </svg>
             </button>
+            { warning && <div className={ 'cart__warning cart__warning-' + warning.type } >{ warning.message }</div> }
             <dl className="cart__items-container">
                 { cart.length > 0 ? cart.map( item => (
                     <div className="cart__item" key={ 'cart-item-' + item.id }>
@@ -131,7 +156,7 @@ const Cart = ({ cart, updateCart, isCartVisible, setCartVisibility }) => {
                     </div>
                 )) : <dt className="cart__noitem-headline" >The cart is Empty! </dt> }
             </dl>
-            { cart.length > 0 && <button className="cart__submit-button" >Order Now</button> }
+            { cart.length > 0 && <button className="cart__submit-button" onClick={ makeOrder } >Order Now</button> }
         </aside>
     );
 }
@@ -140,7 +165,8 @@ const mapStateToProps = state => ({ cart: state.cart, isCartVisible: state.isCar
 
 const mapDispatchToProps = dispatch => ({
     updateCart: newCart => dispatch( updateCart( newCart ) ),
-    setCartVisibility: isVisble => dispatch( setCartVisibility( isVisble ) )
+    setCartVisibility: isVisble => dispatch( setCartVisibility( isVisble ) ),
+    dispatchOrder: () => dispatch( dispatchOrder() )
 });
 
 export default connect( mapStateToProps, mapDispatchToProps )( Cart );
