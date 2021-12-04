@@ -1,4 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://admin123:admin@cluster0.p2nni.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtSecret": "thisIsGoingToBeTheBestKeptSecret0-0amen"
-}
