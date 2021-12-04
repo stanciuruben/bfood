@@ -1,17 +1,9 @@
-const path = require('path');
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const config = require('config');
-
-// @route   GET
-// @desc    login.html
-// @access  Public
-router.get('/', async ( req, res ) => {
-    res.sendFile( path.resolve( __dirname, '../../../public/login.html' ) );
-});
 
 // @route   POST
 // @desc    log-in user

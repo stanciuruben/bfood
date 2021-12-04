@@ -1,8 +1,20 @@
 import { connect } from 'react-redux';
 import { useState } from 'react';
-import { updateCart, setCartVisibility, dispatchOrder } from '../redux/actions';
+import { 
+    updateCart, 
+    setCartVisibility, 
+    setUserInfoVisibility, 
+    dispatchOrder 
+} from '../redux/actions';
 
-const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrder } ) => {
+const Cart = ( {
+    cart, 
+    updateCart, 
+    isCartVisible, 
+    setCartVisibility, 
+    setUserInfoVisibility,
+    dispatchOrder 
+} ) => {
     const [ warning, setWarning ] = useState( null );
 
     const displayWarning = ( message, type ) => {
@@ -41,10 +53,25 @@ const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrd
         cartAnimation();
     }
 
-    const makeOrder = () => {
-        cartAnimation();
-        dispatchOrder();
-        displayWarning( 'Order dispatched successfully', 'success' );
+    const makeOrder = async () => {
+        const response = await fetch( '/dispatch-order', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify( cart )
+        } );
+        const result = await response.json();
+        if ( result.type ) {
+            displayWarning( result.message, result.type );
+            if ( result.type === 'success' ) {
+                cartAnimation();
+                dispatchOrder();
+            }
+            return;
+        }
+        setUserInfoVisibility( true );
+        setCartVisibility( false );
     }
 
     return (
@@ -161,10 +188,14 @@ const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrd
     );
 }
 
-const mapStateToProps = state => ({ cart: state.cart, isCartVisible: state.isCartVisible });
+const mapStateToProps = state => ({ 
+    cart: state.cart, 
+    isCartVisible: state.isCartVisible 
+});
 
 const mapDispatchToProps = dispatch => ({
     updateCart: newCart => dispatch( updateCart( newCart ) ),
+    setUserInfoVisibility: isVisble => dispatch( setUserInfoVisibility( isVisble ) ),
     setCartVisibility: isVisble => dispatch( setCartVisibility( isVisble ) ),
     dispatchOrder: () => dispatch( dispatchOrder() )
 });

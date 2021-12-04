@@ -3,19 +3,16 @@ import {
     SET_CART_VISIBILITY,
     UPDATE_CART,
     ADD_TO_CART,
-    DISPATCH_ORDER
+    DISPATCH_ORDER,
+    SET_LOADING,
+    SET_USER
 } from "./types";
 
 const initialState = {
     loading: false,
-    isUserInfoVisible: true,
+    isUserInfoVisible: false,
     isCartVisible: false,
-    user: {
-        name: 'Ruben',
-        surname: 'Stanciu',
-        address1: 'Michellingasse 23',
-        address2: 'D51897 Stuttgart',
-    },
+    user: {},
     cart: [
         {
             name: "Pizza carbonara napoletana di milano",
@@ -136,8 +133,7 @@ const initialState = {
             ],
             id: 5,
         }
-    ],
-    orders: []
+    ]
 }
 
 const RootReducer = ( state = initialState, action ) => {
@@ -152,10 +148,17 @@ const RootReducer = ( state = initialState, action ) => {
             return { ...state, cart: state.cart.concat( [ action.payload ] ) };
         case DISPATCH_ORDER:
             return { 
-                ...state, orders: 
-                state.orders.concat( [{ items: state.cart }] ), 
+                ...state, 
+                user: { 
+                    ...state.user,
+                    orders: state.user.orders.concat( [{ items: state.cart }] )
+                }, 
                 cart: []
             };
+        case SET_LOADING:
+            return { ...state, loading: action.payload };
+        case SET_USER:
+            return { ...state, user: action.payload };
         default: return state;
     }
 }

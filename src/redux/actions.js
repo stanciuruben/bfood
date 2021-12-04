@@ -3,7 +3,9 @@ import {
     SET_CART_VISIBILITY,
     UPDATE_CART,
     ADD_TO_CART,
-    DISPATCH_ORDER
+    DISPATCH_ORDER,
+    SET_LOADING,
+    SET_USER
  } from './types';
 
 export const setUserInfoVisibility = isVisble => ({ 
@@ -27,3 +29,7 @@ export const addToCart = ( newItem ) => ({
 });
 
 export const dispatchOrder = () => ({ type: DISPATCH_ORDER });
+
+export const setLoading = isLoading => ({ type: SET_LOADING, payload: isLoading });
+
+export const setUser = user => ({ type: SET_USER, payload: user });

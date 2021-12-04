@@ -85,6 +85,18 @@
             font-size: 1.5rem;
         }
 
+        &__error {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            font-size: 1.7rem;
+            padding: 1rem 0;
+            border-radius: 1rem;
+            background-color: $color-warning;
+            color: $color-grey-light;
+            box-shadow: inset 0 0 1rem rgba( $color-grey-dark, .5);
+        }
+
         &__submit {
             display: block;
             padding: 1rem;

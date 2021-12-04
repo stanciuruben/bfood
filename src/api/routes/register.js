@@ -1,17 +1,9 @@
-const path = require('path');
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const config = require('config');
 const jwt = require('jsonwebtoken');
-
-// @route   GET
-// @desc    register.html
-// @access  Public
-router.get('/', async ( req, res ) => {
-    res.sendFile( path.resolve( __dirname, '../../../public/register.html' ) );
-});
 
 // @route   GET
 // @desc    register user
