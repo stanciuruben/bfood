@@ -48,7 +48,7 @@ const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrd
     }
 
     return (
-        <aside id="cart" className={'cart on-cart-load' + ( isCartVisible ? '' : ' collapse-cart') } >
+        <section id="cart" className={'cart on-cart-load' + ( isCartVisible ? '' : ' collapse-cart') } >
             <button className="cart__headline" title="Close Cart" onClick={ () => setCartVisibility( !isCartVisible ) } >
                 Cart { cart.length > 0 && <span className="cart__headline__nr" >{ cart.length }</span> }
                 <svg viewBox="0 0 50 50">
@@ -157,7 +157,7 @@ const Cart = ( { cart, updateCart, isCartVisible, setCartVisibility, dispatchOrd
                 )) : <dt className="cart__noitem-headline" >The cart is Empty! </dt> }
             </dl>
             { cart.length > 0 && <button className="cart__submit-button" onClick={ makeOrder } >Order Now</button> }
-        </aside>
+        </section>
     );
 }
 

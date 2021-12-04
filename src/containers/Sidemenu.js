@@ -2,10 +2,10 @@ import Cart from '../components/Cart';
 import UserInfo from '../components/UserInfo';
 
 const Sidemenu = () => (
-    <div id='sidemenu' >
-        <Cart />
+    <aside id='sidemenu' >
         <UserInfo />
-    </div>
+        <Cart />
+    </aside>
 );
 
 export default Sidemenu;

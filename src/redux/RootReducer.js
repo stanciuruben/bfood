@@ -1,4 +1,5 @@
 import { 
+    SET_USER_INFO_VISIBILITY,
     SET_CART_VISIBILITY,
     UPDATE_CART,
     ADD_TO_CART,
@@ -6,8 +7,15 @@ import {
 } from "./types";
 
 const initialState = {
-    isCartVisible: true,
-    userName: null,
+    loading: false,
+    isUserInfoVisible: true,
+    isCartVisible: false,
+    user: {
+        name: 'Ruben',
+        surname: 'Stanciu',
+        address1: 'Michellingasse 23',
+        address2: 'D51897 Stuttgart',
+    },
     cart: [
         {
             name: "Pizza carbonara napoletana di milano",
@@ -134,6 +142,8 @@ const initialState = {
 
 const RootReducer = ( state = initialState, action ) => {
     switch ( action.type ) {
+        case SET_USER_INFO_VISIBILITY:
+            return { ...state, isUserInfoVisible: action.payload };
         case SET_CART_VISIBILITY:
             return { ...state, isCartVisible: action.payload };
         case UPDATE_CART:
